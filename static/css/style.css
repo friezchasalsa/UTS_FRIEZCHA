@@ -20,11 +20,57 @@ body {
 
 /* HEADER */
 .header {
-    background: #222222;
+    background: linear-gradient(
+        270deg,
+        #222222,
+        #554f52,
+        #222222
+    );
+    background-size: 400% 400%;
+
     color: white;
     text-align: center;
     padding: 30px;
     margin-bottom: 10px;
+
+    animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #ff69b4;
+    width: 0;
+
+    animation:
+        typing 10s steps(32, end) infinite,
+        blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    45% { width: 32ch; }
+    55% { width: 32ch; }
+    100% { width: 0; }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
 }
 
 /* GRID */
